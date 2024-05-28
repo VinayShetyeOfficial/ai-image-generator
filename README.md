@@ -1,7 +1,6 @@
 # AI Image Generator 🖼️
 ![image](https://github.com/VinayShetyeOfficial/AI_Image_Generator/assets/100470361/9f4b8b0a-ac63-481f-95db-6b96b4406c0a)
 
-
 ![image](https://github.com/VinayShetyeOfficial/AI_Image_Generator/assets/100470361/c0401409-24ac-493c-85ab-2c9692f6abaf)
 
 ![image](https://github.com/VinayShetyeOfficial/AI_Image_Generator/assets/100470361/b2c5fe34-e425-4eb6-bb32-a5bdfc6fa395)
