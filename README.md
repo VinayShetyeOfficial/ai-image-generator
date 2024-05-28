@@ -9,7 +9,7 @@
 
 ![image](https://github.com/VinayShetyeOfficial/AI_Image_Generator/assets/100470361/042c0325-b5a2-4078-bad0-81ca9e8b2852) 
 
- 
+  
 ## Description
 The AI Image Generator is a user-friendly web application that uses OpenAI's image generation model to create images from textual descriptions. The AI can produce a lot of different image styles, ensuring that users can generate creative content aligned with their vision.
 
