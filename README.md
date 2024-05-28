@@ -5,7 +5,7 @@
   
 ![image](https://github.com/VinayShetyeOfficial/AI_Image_Generator/assets/100470361/b2c5fe34-e425-4eb6-bb32-a5bdfc6fa395)  
     
-![image](https://github.com/VinayShetyeOfficial/AI_Image_Generator/assets/100470361/807027d2-f7c7-4c72-8c9c-cecfdc0cfdab)    
+![image](https://github.com/VinayShetyeOfficial/AI_Image_Generator/assets/100470361/807027d2-f7c7-4c72-8c9c-cecfdc0cfdab)     
 
 ![image](https://github.com/VinayShetyeOfficial/AI_Image_Generator/assets/100470361/042c0325-b5a2-4078-bad0-81ca9e8b2852) 
 
