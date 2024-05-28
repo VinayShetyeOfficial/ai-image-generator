@@ -18,7 +18,7 @@ The AI Image Generator is a user-friendly web application that uses OpenAI's ima
 - **Textual Input for Image Generation:** Users can input descriptive text to generate images.
 - **Diverse Image Styles:** The AI can produce a wide range of image styles, catering to various artistic preferences.
 - **OpenAI Model Integration:** Harnesses the power of OpenAI's image generation model for high-quality results.
-- **Responsive Design:** Ensures a consistent experience across different devices and screen sizes
+- **Responsive Design:** Ensures a consistent experience across different devices and screen sizes 
 
 ## Development Opportunities
 
