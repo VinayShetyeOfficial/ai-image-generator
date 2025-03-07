@@ -142,6 +142,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📧 Contact
 
-Your Name - [GitHub](https://github.com/VinayShetyeOfficial) - vinay.shetye.personal@outlook.com <br>
+Vinay Shetye - [GitHub](https://github.com/VinayShetyeOfficial) - vinay.shetye.personal@outlook.com <br>
 Project Link: [https://github.com/VinayShetyeOfficial/AI-Image-Generator](https://github.com/VinayShetyeOfficial/AI-Image-Generator)
 
