@@ -142,10 +142,10 @@
 }
 
 .search-input {
-  user-select: text; /* Enable text selection for input */
-  -webkit-user-select: text;
-  -moz-user-select: text;
-  -ms-user-select: text;
+  user-select: text !important; /* Override the parent's user-select: none */
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
   width: 70%;
   height: 50px;
   background: transparent;
@@ -517,6 +517,10 @@ body.light-mode .search-input {
   border: 2px solid rgba(255, 255, 255, 0.7); /* Thinner border */
   animation: pulse 2s infinite;
   transition: all 0.3s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .theme-toggle-button:hover {
