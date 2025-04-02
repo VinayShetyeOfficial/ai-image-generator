@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import "./ImageGenerator.css";
 import { assets } from "../../assets/assets";
+import Draggable from "react-draggable";
 
 const ImageGenerator = () => {
   const [imageURL, setImageURL] = useState("/");
@@ -11,6 +12,23 @@ const ImageGenerator = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [darkMode, setDarkMode] = useState(true);
   const [tiltStyle, setTiltStyle] = useState({});
+  const [isDraggable, setIsDraggable] = useState(false);
+
+  // Check screen size on mount and resize
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsDraggable(window.innerWidth <= 768);
+    };
+
+    // Initial check
+    checkScreenSize();
+
+    // Add event listener for window resize
+    window.addEventListener("resize", checkScreenSize);
+
+    // Cleanup
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
 
   // Get all API keys from environment variables
   const getApiKeys = () => {
@@ -242,8 +260,12 @@ const ImageGenerator = () => {
           Generate
         </div>
       </div>
-      <div className="theme-toggle" onClick={toggleTheme}>
-        {darkMode ? "☀️" : "🌙"}
+
+      {/* Fixed position theme toggle button with high visibility */}
+      <div className="theme-toggle-container">
+        <div className="theme-toggle-button" onClick={toggleTheme}>
+          {darkMode ? "☀️" : "🌙"}
+        </div>
       </div>
     </div>
   );
