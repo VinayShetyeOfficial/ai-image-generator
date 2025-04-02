@@ -221,7 +221,9 @@ const ImageGenerator = () => {
   return (
     <div className="ai-image-generator">
       <div className="header">
-        &nbsp;AI Image&nbsp;<span>&nbsp;Generator&nbsp;</span>
+        <span className="pink-part">AI Image</span>
+        <div className="junction-point"></div>
+        <span className="white-part">Generator</span>
       </div>
       <div className="img-loading">
         <div
