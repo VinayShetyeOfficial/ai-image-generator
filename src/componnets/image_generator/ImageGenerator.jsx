@@ -64,6 +64,13 @@ const ImageGenerator = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // Handle key press event for the input field
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter" && !loading) {
+      imageGenerator();
+    }
+  };
+
   const imageGenerator = async () => {
     if (inputRef.current.value === "") {
       return;
@@ -186,11 +193,6 @@ const ImageGenerator = () => {
     setLoading(false);
   };
 
-  const toggleTheme = () => {
-    setDarkMode(!darkMode);
-    document.body.classList.toggle("light-mode");
-  };
-
   const handleMouseMove = (e) => {
     if (!loading) return;
 
@@ -254,16 +256,10 @@ const ImageGenerator = () => {
           ref={inputRef}
           className="search-input"
           placeholder="Describe what you want to see ?"
+          onKeyPress={handleKeyPress}
         />
         <div className="generate-btn" onClick={imageGenerator}>
           Generate
-        </div>
-      </div>
-
-      {/* Fixed position theme toggle button with high visibility */}
-      <div className="theme-toggle-container">
-        <div className="theme-toggle-button" onClick={toggleTheme}>
-          {darkMode ? "☀️" : "🌙"}
         </div>
       </div>
     </div>
