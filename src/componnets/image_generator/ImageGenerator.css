@@ -14,30 +14,45 @@
 .header {
   font-size: 60px;
   font-weight: 700;
-  background: linear-gradient(to right, #de1b89 50%, transparent 50%);
-  text-transform: capitalize;
+  display: flex;
+  align-items: center;
   border-radius: 15px;
   margin-top: 20px;
   letter-spacing: 1px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  white-space: nowrap; /* Prevent text from breaking */
-  display: inline-block; /* Allow container to shrink to text size */
-  padding: 0 15px;
   overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.header span {
-  color: #de1b89;
-  font-weight: 600;
-  background-color: #fff;
-  display: inline-block;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  white-space: nowrap;
   position: relative;
 }
 
-.header span::before {
+.header .pink-part {
+  background-color: #de1b89;
+  color: white;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.header .white-part {
+  background-color: white;
+  color: #de1b89;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* Junction point for precise circle placement */
+.junction-point {
+  position: relative;
+  width: 0;
+  height: 100%;
+  z-index: 5;
+}
+
+/* Add a center circle at the junction point */
+.junction-point::after {
   content: "";
   display: block;
   background-color: #242424;
@@ -46,11 +61,13 @@
   height: 20px;
   position: absolute;
   top: 50%;
-  left: -10px;
-  transform: translateY(-50%);
+  left: 0;
+  transform: translate(-50%, -50%);
+  z-index: 10;
 }
 
-.header span::after {
+/* Add the rotating inner circle */
+.junction-point::before {
   content: "";
   display: block;
   background: linear-gradient(to right, #fff 50%, #de1b89 50%);
@@ -59,9 +76,19 @@
   height: 10px;
   position: absolute;
   top: 50%;
-  left: -5px;
-  transform: translateY(-50%);
+  left: 0;
+  transform: translate(-50%, -50%);
+  z-index: 11;
   animation: rotating 1s infinite linear;
+}
+
+@keyframes rotating {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
 
 .image {
@@ -249,8 +276,21 @@
 @media (max-width: 768px) {
   .header {
     font-size: 40px;
-    white-space: nowrap;
-    max-width: 90vw; /* Limit width on small screens */
+  }
+
+  .header .pink-part,
+  .header .white-part {
+    padding: 0 10px;
+  }
+
+  .junction-point::after {
+    width: 16px;
+    height: 16px;
+  }
+
+  .junction-point::before {
+    width: 8px;
+    height: 8px;
   }
 
   .img-loading img {
@@ -309,7 +349,16 @@
 @media (max-width: 480px) {
   .header {
     font-size: 32px;
-    padding: 0 10px;
+  }
+
+  .junction-point::after {
+    width: 14px;
+    height: 14px;
+  }
+
+  .junction-point::before {
+    width: 7px;
+    height: 7px;
   }
 
   .ai-image-generator {
