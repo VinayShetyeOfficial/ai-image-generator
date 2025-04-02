@@ -238,17 +238,14 @@ const ImageGenerator = () => {
             className={imageLoaded ? "fade-in" : ""}
             onLoad={() => setImageLoaded(true)}
           />
-          <div className="loading">
-            {loading && <div className="loading-spinner"></div>}
-            <div className="loading-bar-container">
-              <div
-                className={loading ? "loading-bar-full" : "loading-bar"}
-              ></div>
+          {loading && (
+            <div className="loading">
+              <div className="loading-bar-container">
+                <div className="loading-bar"></div>
+              </div>
+              <div className="loading-text">Generating...</div>
             </div>
-            <div className={loading ? "loading-text" : "display-none"}>
-              {loadingText}
-            </div>
-          </div>
+          )}
         </div>
       </div>
       <div className="search-box">
