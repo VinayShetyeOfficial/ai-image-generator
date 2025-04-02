@@ -8,6 +8,9 @@ const ImageGenerator = () => {
   const [loading, setLoading] = useState(false);
   const [loadingText, setLoadingText] = useState("Loading");
   const [currentKeyIndex, setCurrentKeyIndex] = useState(0);
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
+  const [tiltStyle, setTiltStyle] = useState({});
 
   // Get all API keys from environment variables
   const getApiKeys = () => {
@@ -165,19 +168,63 @@ const ImageGenerator = () => {
     setLoading(false);
   };
 
+  const toggleTheme = () => {
+    setDarkMode(!darkMode);
+    document.body.classList.toggle("light-mode");
+  };
+
+  const handleMouseMove = (e) => {
+    if (!loading) return;
+
+    const imageContainer = document.querySelector(".image");
+    if (!imageContainer) return;
+
+    const rect = imageContainer.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const tiltX = (y - centerY) / 20;
+    const tiltY = (centerX - x) / 20;
+
+    setTiltStyle({
+      transform: `rotateX(${tiltX}deg) rotateY(${tiltY}deg)`,
+    });
+  };
+
+  const resetTilt = () => {
+    setTiltStyle({
+      transform: "rotateX(0deg) rotateY(0deg)",
+    });
+  };
+
   return (
     <div className="ai-image-generator">
       <div className="header">
         &nbsp;AI Image&nbsp;<span>&nbsp;Generator&nbsp;</span>
       </div>
       <div className="img-loading">
-        <div className="image">
+        <div
+          className="image"
+          style={tiltStyle}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={resetTilt}
+        >
           <img
             src={imageURL === "/" ? assets.default_image : imageURL}
             alt=""
+            className={imageLoaded ? "fade-in" : ""}
+            onLoad={() => setImageLoaded(true)}
           />
           <div className="loading">
-            <div className={loading ? "loading-bar-full" : "loading-bar"}></div>
+            {loading && <div className="loading-spinner"></div>}
+            <div className="loading-bar-container">
+              <div
+                className={loading ? "loading-bar-full" : "loading-bar"}
+              ></div>
+            </div>
             <div className={loading ? "loading-text" : "display-none"}>
               {loadingText}
             </div>
@@ -194,6 +241,9 @@ const ImageGenerator = () => {
         <div className="generate-btn" onClick={imageGenerator}>
           Generate
         </div>
+      </div>
+      <div className="theme-toggle" onClick={toggleTheme}>
+        {darkMode ? "☀️" : "🌙"}
       </div>
     </div>
   );
